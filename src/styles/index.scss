@@ -1,0 +1,32 @@
+/* Normalize CSS */
+@import url('./reset.css');
+
+/* Fontes */
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:600&display=swap');
+
+/* Variables */
+@import 'variables';
+
+/* Standard styles */
+@import 'standard';
+@import 'forms';
+
+.spinner {
+  border: 5px solid rgba(0, 0, 0, 0);
+  border-left-color: $checkbox;
+  border-right-color: $checkbox;
+  border-bottom-color: $checkbox;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.m-percent {
+  margin-top: 5%;
+  margin-bottom: 1%;
+}

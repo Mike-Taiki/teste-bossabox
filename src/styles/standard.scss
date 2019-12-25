@@ -1,0 +1,130 @@
+html,body, * {
+    margin: 0;
+    padding: 0;
+    font: {
+        family: $font;
+        size: 20px;
+    } ;
+    letter-spacing: 0.4px;
+    line-height: 26px;
+}
+
+.color {
+    color: $color-text;
+}
+
+h1 {
+    @extend .color;
+    text-align: left;
+    font-size: 42px;
+    letter-spacing: 0.84px;
+}
+
+h2 {
+    @extend .color;
+    font-size: 36px;
+    letter-spacing: 0.84px;
+}
+
+h3 {
+    @extend .color;
+    font-size: 30px;
+}
+
+h4 {
+    @extend .color;
+    font-size: 26px;
+    letter-spacing: 0.52px;
+    text-transform: capitalize;
+    margin-top: 30px;
+}
+
+h5 {
+    @extend .color;
+    font-size: 26px;
+}
+
+.container {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.row {
+    width: 100%;
+}
+
+.d-block {
+    display: inline-block;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.flex-center {
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mt-10 {
+    margin-top: 5px;
+}
+
+.mt-15 {
+    margin-top: 15px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mt-40 {
+    margin-top: 40px;
+}
+
+.ml-5 {
+    margin-left: 5px;
+}
+
+.mr-5 {
+    margin-right: 5px;
+}
+
+.card {
+    width: 100%;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 10px 10px #0000000D;
+    border: 1px solid #EBEAED;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .link {
+    cursor: pointer;
+    border-bottom: 1px solid $link;
+    color: $link;
+    display: inline-block;
+  }
+  
+  .tag {
+    font-weight: 900!important;
+    letter-spacing: 0.36px;
+    font-size: 18px;
+  }

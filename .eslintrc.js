@@ -1,4 +1,5 @@
 module.exports = {
+  /*eslint linebreak-style: ["error", "windows"]*/
   root: true,
   env: {
     node: true,
@@ -10,6 +11,10 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    "eslint linebreak-style": [0, "error", "windows"],
+    'linebreak-style': ['error', 'windows'],
+    "linebreak-style": 0,
+    "global-require": 0,
   },
   parserOptions: {
     parser: 'babel-eslint',
