@@ -19,6 +19,11 @@ export default new Vuex.Store({
         .then(tools => commit('SET_TOOLS', tools.data))
         .catch(err => console.log('err: ', err));
     },
+    actionRemoveTool({ dispatch }, id) {
+      return request.delete(`/tools/${id}`)
+        .then(async () => dispatch('actionTools'))
+        .catch(err => console.log('err: ', err));
+    },
   },
   getters: {
     getTools(state) {
