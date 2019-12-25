@@ -69,12 +69,20 @@ h5 {
     justify-content: space-between;
 }
 
+.flex-end {
+    justify-content: flex-end;
+}
+
 .flex-center {
     justify-content: center;
 }
 
 .align-center {
     align-items: center;
+}
+
+.align-end {
+    align-items: flex-end;
 }
 
 .mb-10 {

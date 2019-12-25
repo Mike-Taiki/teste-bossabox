@@ -30,29 +30,17 @@ import Spinner from './Spinner.vue';
 export default {
   name: 'Products',
   components: { Spinner },
-  data() {
-    return {
-      tools: null,
-      noData: null,
-    };
-  },
-  async created() {
-    this.actionTools();
+  props: {
+    tools: {
+      required: true,
+    },
+    noData: {
+      required: true,
+    },
   },
   methods: {
-    async actionTools() {
-      await this.$store.dispatch('actionTools');
-      this.getTools();
-    },
-    async getTools() {
-      this.tools = await this.$store.getters.getTools;
-      if (!this.tools.length) {
-        this.noData = ':( No Tool registered';
-      }
-    },
-    async remove(id) {
-      await this.$store.dispatch('actionRemoveTool', id);
-      this.tools = this.getTools();
+    remove(id) {
+      this.$emit('remove', id);
     },
   },
 };

@@ -41,16 +41,20 @@ button {
   height: 50px;
   border: none;
   cursor: pointer;
-}
-
-.primary {
-  background: $checkbox 0% 0% no-repeat padding-box;
-  border-radius: 5px;
-  color: $color-white;
   font: {
     size: 18px;
     letter-spacing: 0.36px;
   };
+  border-radius: 5px;
+  color: $color-white;
+}
+
+.primary {
+  background: $checkbox 0% 0% no-repeat padding-box;
+}
+
+.danger {
+  background: $color-danger 0% 0% no-repeat padding-box;
 }
 
 /* Customize the label (the container) */
