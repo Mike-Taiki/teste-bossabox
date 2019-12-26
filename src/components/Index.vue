@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header />
+    <Header @openModalAdd="openModalAdd"/>
     <Products @openModal="openModal" :tools="tools" @remove="openModal" :noData="noData" />
     <Modal :modalOpen="modalOpen" @closeModal="closeModal" @removeTool="removeTool">
       <span class="btn-remove" style="cursor: inherit!important">
@@ -12,6 +12,20 @@
         <button class="primary mr-5" @click="removeTool" >Yes, remove</button>
         <button class="danger" @click="closeModal">Cancel</button>
       </span>
+    </Modal>
+
+    <Modal :modalOpen="modalOpenAdd">
+      <span class="btn-remove" style="cursor: inherit!important">
+          <font-awesome-icon icon="plus" />
+          <span class="ml-5">Add new tool</span>
+      </span>
+
+      <div class="search">
+        <span class="text-search">
+          <label for="" class="icon-search"></label>
+          <input type="text" placeholder="tool...">
+        </span>
+      </div>
     </Modal>
   </div>
 </template>
@@ -30,6 +44,7 @@ export default {
       id: null,
       tools: null,
       noData: null,
+      modalOpenAdd: false,
     };
   },
   created() {
@@ -60,6 +75,12 @@ export default {
     },
     removeTool() {
       this.remove(this.id);
+    },
+    openModalAdd() {
+      this.modalOpenAdd = true;
+    },
+    closeModalAdd() {
+      this.modalOpenAdd = false;
     },
   },
 };

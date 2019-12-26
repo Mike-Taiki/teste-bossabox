@@ -20,7 +20,7 @@
       </label>
 
       <div class="d-flex flex-column flex-center">
-        <button class="primary">
+        <button class="primary" @click="openModalAdd">
           <font-awesome-icon icon="plus" />
           Add
         </button>
@@ -32,6 +32,11 @@
 <script>
 export default {
   name: 'Header',
+  methods: {
+    openModalAdd() {
+      this.$emit('openModalAdd');
+    },
+  },
 };
 </script>
 

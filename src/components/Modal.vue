@@ -1,5 +1,5 @@
 <template>
-    <div v-if="modalOpen" class="bg-body">
+    <div v-if="modalOpen" class="bg-body" @click="closeModal">
       <div class="modal">
         <slot></slot>
       </div>

@@ -1,14 +1,14 @@
 .search {
     width: 403px;
     height: 50px;
-    background: $background-search 0% 0% no-repeat padding-box;
-    border: 1px solid $border-search;
+    background: #F5F4F6 0% 0% no-repeat padding-box;
+    border: 1px solid #EBEAED;
     border-radius: 5px;
     box-sizing: border-box;
 }
 
 .text-search {
-    color: $text-search;
+    color: #B1ADB9;
     font: {
       family: $font;  
       size: 20px;
@@ -23,7 +23,7 @@
     padding: 0 10px 0 20px;
 }
 
-input[type="text"] {
+span.text-search input[type="text"] {
     @extend .text-search;
     color: $color-text;
     width: 320px;
@@ -32,8 +32,28 @@ input[type="text"] {
     background-color: transparent;
     
     &:focus {
+        background: #EBEAED 0% 0% no-repeat padding-box;
         outline: none;
     }
+}
+
+input[name="tool"] {
+  display: block;
+  width: 403px;
+  height: 50px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #EBEAED;
+  background: #F5F4F6 0% 0% no-repeat padding-box;
+  font: {
+    size: 20px;
+  }
+
+  &:focus {
+    border: 1px solid #DEDCE1;
+    background: #EBEAED 0% 0% no-repeat padding-box;
+    outline: none;
+  }
 }
 
 button {
