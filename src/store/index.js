@@ -7,14 +7,18 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     tools: [],
-    search_tool: [],
+    searchTool: [],
+    searchTagsTool: [],
   },
   mutations: {
     SET_TOOLS(state, tools) {
       state.tools = tools;
     },
     SET_SEARCH_TOOL(state, tools) {
-      state.search_tool = tools;
+      state.searchTool = tools;
+    },
+    SET_SEARCH_TAGS_TOOL(state, tools) {
+      state.searchTagsTool = tools;
     },
   },
   actions: {
@@ -34,9 +38,13 @@ export default new Vuex.Store({
         .catch(err => console.log('err: ', err));
     },
     actionSearchTool({ commit }, title) {
-      console.log('title: ', title);
       return request.get(`/tools?q=${title}`)
         .then(tools => commit('SET_SEARCH_TOOL', tools.data))
+        .catch(err => console.log('err: ', err));
+    },
+    actionSearchTagsTool({ commit }, title) {
+      return request.get(`/tools?tags_like=${title}`)
+        .then(tools => commit('SET_SEARCH_TAGS_TOOL', tools.data))
         .catch(err => console.log('err: ', err));
     },
   },
@@ -45,7 +53,10 @@ export default new Vuex.Store({
       return state.tools;
     },
     getSearchTool(state) {
-      return state.search_tool;
+      return state.searchTool;
+    },
+    getSearchTagsTool(state) {
+      return state.searchTagsTool;
     },
   },
   modules: {

@@ -1,6 +1,11 @@
 <template>
   <div>
-    <Header @openModalAdd="openModalAdd" @toolExists="searchTool" @toolNotExists="getTools" />
+    <Header
+      @openModalAdd="openModalAdd"
+      @toolExists="searchTool"
+      @toolNotExists="toolNotExists"
+      @toolNotExistsButLoadTools="getTools"
+    />
     <Products @openModal="openModal" :tools="tools" @remove="openModal" :noData="noData" />
     <Modal :modalOpen="modalOpen" @closeModal="closeModal" @removeTool="removeTool" :top="'38%'">
       <span class="btn-remove" style="cursor: inherit!important">
@@ -96,6 +101,7 @@ export default {
       this.modalOpen = false;
     },
     async getTools() {
+      this.noData = null;
       this.tools = this.$store.getters.getTools;
       this.modalOpenAdd = false;
       if (!this.tools.length) {
@@ -125,7 +131,12 @@ export default {
       this.getTools();
     },
     async searchTool(tool) {
+      this.noData = null;
       this.tools = tool;
+    },
+    toolNotExists() {
+      this.tools = [];
+      this.noData = 'Sorry, tool not Exists ;(';
     },
   },
 };

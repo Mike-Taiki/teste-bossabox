@@ -21,7 +21,7 @@
         </div>
 
         <label class="personalized-checkbox">
-          <input type="checkbox">
+          <input type="checkbox" v-model="tagsSelected">
           <span class="checkmark"></span>
           search in tags only
         </label>
@@ -48,6 +48,7 @@ export default {
   data() {
     return {
       textSearchTool: '',
+      tagsSelected: false,
     };
   },
   methods: {
@@ -55,7 +56,17 @@ export default {
       this.$emit('openModalAdd');
     },
     async searchTool() {
-      if (this.textSearchTool) {
+      // case only tags is selected
+      if (this.tagsSelected) {
+        await this.$store.dispatch('actionSearchTagsTool', this.textSearchTool);
+        const tool = await this.$store.getters.getSearchTagsTool;
+        if (tool.length) {
+          this.$emit('toolExists', tool);
+        } else {
+          this.$emit('toolNotExists');
+        }
+        // case only common search
+      } else if (this.textSearchTool) {
         await this.$store.dispatch('actionSearchTool', this.textSearchTool);
         const tool = await this.$store.getters.getSearchTool;
         if (tool.length) {
@@ -64,7 +75,8 @@ export default {
           this.$emit('toolNotExists');
         }
       } else {
-        this.$emit('toolNotExists');
+        // case blank search
+        this.$emit('toolNotExistsButLoadTools');
       }
     },
   },
