@@ -6,18 +6,26 @@
     </header>
 
     <section class="row d-flex space-between align-center mt-40">
-      <div class="search">
-        <span class="text-search">
-          <font-awesome-icon icon="search" class="icon-search" />
-          <input type="text" placeholder="Digite o que está procurando…">
-        </span>
-      </div>
+      <form @submit.prevent class="d-flex align-center">
+        <div class="box">
+          <div class="search">
+              <span class="icon"><font-awesome-icon icon="search" class="icon-search" /></span>
+              <input
+                type="search"
+                id="search"
+                @keyup.enter="searchTool"
+                placeholder="Search..."
+                v-model="textSearchTool"
+              />
+          </div>
+        </div>
 
-      <label class="personalized-checkbox">
-        <input type="checkbox">
-        <span class="checkmark"></span>
-        search in tags only
-      </label>
+        <label class="personalized-checkbox">
+          <input type="checkbox">
+          <span class="checkmark"></span>
+          search in tags only
+        </label>
+      </form>
 
       <div class="d-flex flex-column flex-center">
         <button class="primary" @click="openModalAdd">
@@ -32,9 +40,32 @@
 <script>
 export default {
   name: 'Header',
+  watch: {
+    textSearchTool() {
+      this.searchTool();
+    },
+  },
+  data() {
+    return {
+      textSearchTool: '',
+    };
+  },
   methods: {
     openModalAdd() {
       this.$emit('openModalAdd');
+    },
+    async searchTool() {
+      if (this.textSearchTool) {
+        await this.$store.dispatch('actionSearchTool', this.textSearchTool);
+        const tool = await this.$store.getters.getSearchTool;
+        if (tool.length) {
+          this.$emit('toolExists', tool);
+        } else {
+          this.$emit('toolNotExists');
+        }
+      } else {
+        this.$emit('toolNotExists');
+      }
     },
   },
 };

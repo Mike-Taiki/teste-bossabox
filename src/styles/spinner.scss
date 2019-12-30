@@ -1,0 +1,15 @@
+.spinner {
+    border: 5px solid rgba(0, 0, 0, 0);
+    border-left-color: $checkbox;
+    border-right-color: $checkbox;
+    border-bottom-color: $checkbox;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  

@@ -10,14 +10,14 @@
       <div v-for="tool in tools" :key="tool.id" class="card">
         <div class="d-flex space-between">
           <h5 class="link">{{tool.title}}</h5>
-          <span @click="remove(tool.id)" class="btn-remove">
+          <span @click="remove(tool)" class="btn-remove">
             <font-awesome-icon icon="times" class="icon-remove" />
             <span class="ml-5">remove</span>
           </span>
         </div>
           <p class="mt-20">{{ tool.description }}</p>
           <p class="mt-10 tag">
-            <span v-for="tag in tool.tags" :key="tag" class="mr-5">#{{ tag }}</span>
+            <span v-for="tag in tool.tags" :key="tag" class="mr-5 tags">#{{ tag }}</span>
           </p>
       </div>
     </div>

@@ -1,6 +1,6 @@
 <template>
     <div v-if="modalOpen" class="bg-body" @click="closeModal">
-      <div class="modal">
+      <div class="modal" :style="{ top: top }">
         <slot></slot>
       </div>
     </div>
@@ -13,6 +13,9 @@ export default {
     modalOpen: {
       required: true,
       type: Boolean,
+    },
+    top: {
+      required: true,
     },
   },
   methods: {

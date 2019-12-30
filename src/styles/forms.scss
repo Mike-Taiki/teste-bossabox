@@ -1,58 +1,81 @@
-.search {
-    width: 403px;
-    height: 50px;
-    background: #F5F4F6 0% 0% no-repeat padding-box;
-    border: 1px solid #EBEAED;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-.text-search {
-    color: #B1ADB9;
-    font: {
-      family: $font;  
-      size: 20px;
-      weight: regular;
-    }
-    letter-spacing: 0.4px;
-}
-
-.icon-search {
-    width: 15px;
-    height: 15px;
-    padding: 0 10px 0 20px;
-}
-
-span.text-search input[type="text"] {
-    @extend .text-search;
-    color: $color-text;
-    width: 320px;
-    height: 100%;
-    border: none;
-    background-color: transparent;
-    
-    &:focus {
-        background: #EBEAED 0% 0% no-repeat padding-box;
-        outline: none;
-    }
-}
-
-input[name="tool"] {
-  display: block;
-  width: 403px;
-  height: 50px;
-  margin: 10px 0;
+.text-input-standard {
+  width: 100%;
+  position: relative;
   border-radius: 5px;
-  border: 1px solid #EBEAED;
+}
+
+.input-standard {
   background: #F5F4F6 0% 0% no-repeat padding-box;
+  border: none;
+  float: left;
+  border-radius: 5px;
+  color: $color-text;
   font: {
+    family: $font;  
     size: 20px;
   }
+  letter-spacing: 0.4px;
+}
 
-  &:focus {
-    border: 1px solid #DEDCE1;
-    background: #EBEAED 0% 0% no-repeat padding-box;
-    outline: none;
+.input-focus-standard {
+  outline:none;
+  background: #EBEAED;
+}
+
+.search{
+  @extend .text-input-standard;
+  
+  input#search{
+    width: 403px;
+    height: 50px;
+    padding-left: 50px;
+    @extend .input-standard;
+  }
+
+  .icon{
+    position: absolute;
+    top: 50%;
+    margin-left: 17px;
+    margin-top: 12px;
+    width: 15px;
+    height: 15px;
+    z-index: 1;
+    color: #B1ADB9;
+  }
+
+  input#search:focus, .search input#search:active{
+    @extend .input-focus-standard;
+  }
+}
+
+.input{
+  @extend .text-input-standard;
+
+  input {
+    width: 95%;
+    height: 50px;
+    padding-left: 25px;
+    @extend .input-standard;
+  }
+
+  input:focus, input:active{
+    @extend .input-focus-standard;
+  }
+}
+
+.textarea {
+  @extend .text-input-standard;
+
+  textarea {
+    width: 95%;
+    height: 180px;
+    padding-left: 25px;
+    @extend .input-standard;
+    padding-top: 10px;
+  }
+
+  textarea:focus, textarea:active{
+    @extend .input-focus-standard;
   }
 }
 
@@ -90,7 +113,7 @@ button {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  margin-left: -170px;
+  margin-left: 10px;
 }
 
 /* Hide the browser's default checkbox */

@@ -2,7 +2,7 @@
 @import url('./reset.css');
 
 /* Fontes */
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:100&display=swap');
 
 /* Variables */
 @import 'variables';
@@ -10,21 +10,7 @@
 /* Standard styles */
 @import 'standard';
 @import 'forms';
-
-.spinner {
-  border: 5px solid rgba(0, 0, 0, 0);
-  border-left-color: $checkbox;
-  border-right-color: $checkbox;
-  border-bottom-color: $checkbox;
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
+@import 'spinner';
 
 .m-percent {
   margin-top: 5%;
@@ -47,10 +33,9 @@
   background: #fff;
   border-radius: 5px;
   position: absolute;
-  top: 35%;
   left: 35%;
   box-sizing: border-box;
-  padding: 20px;
+  padding: 20px 30px 20px 20px;
 }
 
 .bg-body {
@@ -60,4 +45,12 @@
   position: fixed;
   left: 0;
   top: 0;
+}
+
+.tags {
+  font-weight: bold;
+}
+
+.bold {
+  font-weight: bold;
 }
