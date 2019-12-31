@@ -90,10 +90,19 @@ button {
   };
   border-radius: 5px;
   color: $color-white;
+  outline: none;
 }
 
 .primary {
   background: $checkbox 0% 0% no-repeat padding-box;
+
+  &:hover {
+    background: #2F55CC 0% 0% no-repeat padding-box;
+  }
+
+  &:active {
+    background: #244AA8 0% 0% no-repeat padding-box;
+  }
 }
 
 .danger {

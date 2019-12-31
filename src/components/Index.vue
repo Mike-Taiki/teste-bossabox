@@ -21,7 +21,7 @@
       </span>
     </Modal>
 
-    <Modal :modalOpen="modalOpenAdd" :top="'14%'">
+    <Modal :modalOpen="modalOpenAdd" :top="'14%'" @closeModal="closeModal">
       <span class="btn-remove" style="cursor: inherit!important">
           <font-awesome-icon icon="plus" />
           <span class="ml-5">Add new tool</span>
@@ -99,6 +99,7 @@ export default {
     },
     closeModal() {
       this.modalOpen = false;
+      this.modalOpenAdd = false;
     },
     async getTools() {
       this.noData = null;
@@ -136,7 +137,7 @@ export default {
     },
     toolNotExists() {
       this.tools = [];
-      this.noData = 'Sorry, tool not Exists ;(';
+      this.noData = 'Sorry, tool not exists ;(';
     },
   },
 };
