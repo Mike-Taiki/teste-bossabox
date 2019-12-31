@@ -15,9 +15,15 @@
             <span class="ml-5">remove</span>
           </span>
         </div>
+        <!--  -->
           <p class="mt-20">{{ tool.description }}</p>
           <p class="mt-10 tag">
-            <span v-for="tag in tool.tags" :key="tag" class="mr-5 tags">#{{ tag }}</span>
+            <span v-for="tag in tool.tags"
+              :key="tag" class="mr-5 tags"
+              :id="tag"
+              :class="{'color-tag': !tag.indexOf(textSearch) && textSearch !== '' }">
+              #{{ tag }}
+            </span>
           </p>
       </div>
     </div>
@@ -37,6 +43,9 @@ export default {
     noData: {
       required: true,
     },
+    textSearch: {
+      required: true,
+    },
   },
   methods: {
     remove(id) {
@@ -45,3 +54,8 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+.color-tag {
+  background: yellow;
+}
+</style>

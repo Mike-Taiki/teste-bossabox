@@ -55,3 +55,48 @@
 .bold {
   font-weight: bold;
 }
+
+.vue-tags-input {
+  background-color: #F5F4F6!important;
+  max-width: 100%!important;
+  min-height: 50px;
+  .ti-input {
+    border-radius: 5px!important;
+    border-color: #EBEAED;
+    min-height: 50px;
+
+  }
+}
+
+.ti-new-tag-input-wrapper input {
+  background: transparent;
+  font: {
+    size: 20px;
+  }
+  color: $color-text;
+  text-transform: lowercase;
+}
+
+.ti-tags .ti-tag {
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 1px solid #EBEAED;
+  color: $color-text;
+
+  .ti-icon-close {
+    color: #C7C4CD;
+    &::before {
+      stroke-width: 2px;
+    }
+  }
+}
+
+.icon-close {
+  cursor: pointer;
+}
+
+.text-modal {
+  color: #8F8A9B;
+  font-size: 20px;
+  letter-spacing: 0.4px;
+  line-height: 26px;
+}

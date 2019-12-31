@@ -64,7 +64,7 @@ export default {
         await this.$store.dispatch('actionSearchTagsTool', this.textSearchTool);
         const tool = await this.$store.getters.getSearchTagsTool;
         if (tool.length) {
-          this.$emit('toolExists', tool);
+          this.$emit('toolExists', tool, this.textSearchTool);
         } else {
           this.$emit('toolNotExists');
         }

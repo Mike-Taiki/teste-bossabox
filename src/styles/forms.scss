@@ -10,6 +10,7 @@
   float: left;
   border-radius: 5px;
   color: $color-text;
+  border: 1px solid #EBEAED;
   font: {
     family: $font;  
     size: 20px;
@@ -30,6 +31,7 @@
     height: 50px;
     padding-left: 50px;
     @extend .input-standard;
+    border: 1px solid #EBEAED;
   }
 
   .icon{
@@ -63,12 +65,32 @@
   }
 }
 
+.input-invalid {
+  background: #FEEFEE 0% 0% no-repeat padding-box!important;
+  border: 1px solid #F95E5A!important;
+  color: #F95E5A!important;
+
+  &::placeholder {
+    color: #F95E5A!important;
+  }
+}
+
+.message-error-field {
+  display: block;
+  font-size: 18px;
+  letter-spacing: 0.36px;
+  line-height: 24px;
+  color: #F95E5A;
+  text-align: right;
+  margin-top: 5px;
+}
+
 .textarea {
   @extend .text-input-standard;
 
   textarea {
     width: 95%;
-    height: 180px;
+    height: 80px;
     padding-left: 25px;
     @extend .input-standard;
     padding-top: 10px;
@@ -80,8 +102,7 @@
 }
 
 button {
-  width: 174px;
-  height: 50px;
+  padding: 10px 30px;
   border: none;
   cursor: pointer;
   font: {
@@ -89,11 +110,11 @@ button {
     letter-spacing: 0.36px;
   };
   border-radius: 5px;
-  color: $color-white;
   outline: none;
 }
 
 .primary {
+  color: $color-white;
   background: $checkbox 0% 0% no-repeat padding-box;
 
   &:hover {
@@ -105,8 +126,30 @@ button {
   }
 }
 
-.danger {
-  background: $color-danger 0% 0% no-repeat padding-box;
+.primary-success {
+  color: $color-white;
+  background: #0DCB7D 0% 0% no-repeat padding-box;
+
+  &:hover {
+    background: #10B26C 0% 0% no-repeat padding-box;
+  }
+
+  &:active {
+    background: #0E995D 0% 0% no-repeat padding-box;
+  }
+}
+
+.outline-danger {
+  color: #F95E5A;
+  background: #FEEFEE 0% 0% no-repeat padding-box;
+
+  &:hover {
+    background: #FCD7D6 0% 0% no-repeat padding-box;
+  }
+
+  &:active {
+    background: #FCC6C5 0% 0% no-repeat padding-box;
+  }
 }
 
 /* Customize the label (the container) */
