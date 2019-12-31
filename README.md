@@ -1,6 +1,16 @@
 # front-end
 
-## Project setup
+## Go to /challenge-fake-api-master and install denpendencies
+```
+npm install
+```
+
+## Execute server
+```
+npx json-server db.json
+```
+
+## Go back to project root
 ```
 npm install
 ```
